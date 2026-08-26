@@ -32,7 +32,7 @@ selkies-core:
             # they SKIP with `unknown verb "cdp"`. (box/<distro> adopts the matching @github
             # pin via reconcile later — the deliberate cross-repo lag; the R10 bed loads the
             # LOCAL candy via the superproject override.)
-            - plugin-cdp
+            - '@github.com/opencharly/plugin-cdp/candy/plugin-cdp:v2026.237.1416'
             # plugin-wl is the OUT-OF-TREE plugin that serves the `wl:` check verb (the
             # Wayland/sway desktop driver lives there, not in charly's core check surface —
             # EXEC-based, driving the venue's compositor via wlrctl/grim/wtype/swaymsg over the
@@ -41,7 +41,7 @@ selkies-core:
             # image's scanned candy set; collectReferencedPluginWords build-connects it before
             # the baked `wl:` check dispatches — otherwise it SKIPs with `unknown verb "wl"`.
             # (Same cross-repo reconcile lag as plugin-cdp.)
-            - plugin-wl
+            - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.237.1430'
         candy:
             - '@github.com/opencharly/pod-selkies:v2026.235.2110'
             - '@github.com/opencharly/pod-pipewire:v2026.235.2110'
