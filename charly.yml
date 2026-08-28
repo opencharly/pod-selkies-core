@@ -111,7 +111,7 @@ selkies-core:
                 exists: true
                 contains:
                     - contains: "[program:chrome]"
-            - check: that supervised entry execs the chrome-wrapper launcher (self-synchronizing — the service's wait_for: blocks on the nested compositor's wayland-0 socket first)
+            - check: that supervised entry execs the chrome-wrapper launcher (self-synchronizing — the service's declared wait_for precondition blocks on the nested compositor's wayland-0 socket first)
               file:
                 file: /etc/supervisord.conf
                 contains:
