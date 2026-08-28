@@ -67,9 +67,10 @@ selkies-core:
             # window-less browser's sole window goes away on the early color-manager
             # re-init) with nothing to relaunch it; the bed only ever passed by racing
             # that ~39s alive window. supervisord relaunches Chrome post-settle, where
-            # it stays up indefinitely. chrome-wrapper itself polls for wayland-0 (the
-            # nested compositor's client socket, created by labwc / startplasma-wayland),
-            # so autostart=true is self-synchronizing — no per-flavor handoff needed.
+            # it stays up indefinitely. The service's wait_for: blocks on wayland-0 (the
+            # nested compositor's client socket, created by labwc / startplasma-wayland)
+            # before Chrome execs, so autostart=true is self-synchronizing — no
+            # per-flavor handoff needed.
             # restart: always relaunches on the clean exit (autorestart=true); start_secs
             # makes the >5s run reset the retry budget so the one startup-race exit
             # never trips FATAL. SELKIES-ONLY: sway-browser-vnc launches Chrome via
@@ -86,6 +87,23 @@ selkies-core:
               stdout: file:/tmp/chrome.log
               enable: true
               scope: system
+              # Chrome is a Wayland client and cannot start before the nested
+              # compositor's client socket exists. chrome-wrapper has polled for it
+              # itself; this is the same wait, declared instead of hand-rolled (B2), so
+              # a timeout fails THE SERVICE and appears in its status rather than
+              # looking like Chrome crashed on startup.
+              #
+              # The path mirrors chrome-wrapper's own defaults exactly — the service
+              # sets WAYLAND_DISPLAY but not XDG_RUNTIME_DIR, so the :-/tmp fallback is
+              # load-bearing, not decoration.
+              #
+              # Landed BEFORE chrome-wrapper's loop is removed (pod-chrome-cdp), so no
+              # image is ever built with neither guard; the redundant window is
+              # harmless because both wait on the same path.
+              wait_for:
+                paths:
+                    - "${XDG_RUNTIME_DIR:-/tmp}/${WAYLAND_DISPLAY:-wayland-0}"
+                timeout: 30s
         plan:
             - check: the assembled supervisord config carries selkies-core's own [program:chrome] launcher entry
               file:
@@ -93,7 +111,7 @@ selkies-core:
                 exists: true
                 contains:
                     - contains: "[program:chrome]"
-            - check: that supervised entry execs the chrome-wrapper launcher (self-synchronizing — it polls for the nested compositor's wayland-0 socket)
+            - check: that supervised entry execs the chrome-wrapper launcher (self-synchronizing — the service's wait_for: blocks on the nested compositor's wayland-0 socket first)
               file:
                 file: /etc/supervisord.conf
                 contains:
@@ -222,8 +240,9 @@ selkies-core-skill:
             launcher (R3). Fields: `restart: always` relaunches Chrome on any exit (including
             the clean self-exit a Chrome started during the nested compositor's startup-race
             produces — the relaunch lands post-settle, where Chrome stays up); `autostart`
-            defaults true and is **self-synchronizing** because `chrome-wrapper` polls for the
-            `wayland-0` client socket itself (no per-flavor `supervisorctl start` handoff);
+            defaults true and is **self-synchronizing** because the service's `wait_for:` blocks
+            on the `wayland-0` client socket before Chrome execs (no per-flavor
+            `supervisorctl start` handoff);
             `start_secs: 5` + `start_retries: 3` let the one startup-race exit reset the retry
             budget rather than trip `FATAL`; `priority: 30`; `env WAYLAND_DISPLAY=wayland-0`.
             
