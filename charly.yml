@@ -1,7 +1,7 @@
-version: 2026.232.0520
+version: 2026.240.1943
 selkies-core:
     candy:
-        version: 2026.242.0830
+        version: 2026.242.1310
         description: |
             Single shared streaming spine for every selkies flavor; supervises the desktop's Chrome for both labwc and KDE.
             Compositor-agnostic core of the selkies streaming desktop: the pixelflux
@@ -43,19 +43,19 @@ selkies-core:
             # (Same cross-repo reconcile lag as plugin-cdp.)
             - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.242.0610'
         candy:
-            - '@github.com/opencharly/pod-selkies:v2026.240.2150'
+            - '@github.com/opencharly/pod-selkies:v2026.242.1235'
             - '@github.com/opencharly/pod-pipewire:v2026.235.2110'
             - '@github.com/opencharly/layer-chrome:v2026.235.2057'
             - '@github.com/opencharly/pod-chrome-cdp:v2026.240.1559'
             - '@github.com/opencharly/layer-desktop-fonts:v2026.237.502'
             - '@github.com/opencharly/layer-wl-tools:v2026.237.459'
-            - '@github.com/opencharly/layer-wl-screenshot-pixelflux:v2026.237.557'
+            - '@github.com/opencharly/layer-wl-screenshot-pixelflux:v2026.242.1239'
             - '@github.com/opencharly/layer-wl-overlay:v2026.237.557'
-            - '@github.com/opencharly/layer-wl-record-pixelflux:v2026.237.557'
+            - '@github.com/opencharly/layer-wl-record-pixelflux:v2026.242.1239'
             - '@github.com/opencharly/layer-a11y-tools:v2026.237.454'
             - '@github.com/opencharly/layer-xterm:v2026.237.503'
             - '@github.com/opencharly/layer-tmux:v2026.235.2057'
-            - '@github.com/opencharly/layer-asciinema:v2026.237.455'
+            - '@github.com/opencharly/layer-asciinema:v2026.240.0119'
             - '@github.com/opencharly/layer-fastfetch:v2026.237.456'
             - '@github.com/opencharly/pod-sshd:v2026.237.558'
         service:
