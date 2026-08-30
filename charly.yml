@@ -1,7 +1,7 @@
 version: 2026.240.1943
 selkies-core:
     candy:
-        version: 2026.242.1310
+        version: 2026.242.2050
         description: |
             Single shared streaming spine for every selkies flavor; supervises the desktop's Chrome for both labwc and KDE.
             Compositor-agnostic core of the selkies streaming desktop: the pixelflux
@@ -32,7 +32,7 @@ selkies-core:
             # they SKIP with `unknown verb "cdp"`. (box/<distro> adopts the matching @github
             # pin via reconcile later — the deliberate cross-repo lag; the R10 bed loads the
             # LOCAL candy via the superproject override.)
-            - '@github.com/opencharly/plugin-cdp/candy/plugin-cdp:v2026.237.1416'
+            - '@github.com/opencharly/plugin-cdp/candy/plugin-cdp:v2026.242.0527'
             # plugin-wl is the OUT-OF-TREE plugin that serves the `wl:` check verb (the
             # Wayland/sway desktop driver lives there, not in charly's core check surface —
             # EXEC-based, driving the venue's compositor via wlrctl/grim/wtype/swaymsg over the
@@ -44,20 +44,20 @@ selkies-core:
             - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.242.0610'
         candy:
             - '@github.com/opencharly/pod-selkies:v2026.242.1235'
-            - '@github.com/opencharly/pod-pipewire:v2026.235.2110'
-            - '@github.com/opencharly/layer-chrome:v2026.235.2057'
+            - '@github.com/opencharly/pod-pipewire:v2026.239.1555'
+            - '@github.com/opencharly/layer-chrome:v2026.239.1623'
             - '@github.com/opencharly/pod-chrome-cdp:v2026.240.1559'
-            - '@github.com/opencharly/layer-desktop-fonts:v2026.237.502'
-            - '@github.com/opencharly/layer-wl-tools:v2026.237.459'
+            - '@github.com/opencharly/layer-desktop-fonts:v2026.239.1629'
+            - '@github.com/opencharly/layer-wl-tools:v2026.240.0121'
             - '@github.com/opencharly/layer-wl-screenshot-pixelflux:v2026.242.1239'
-            - '@github.com/opencharly/layer-wl-overlay:v2026.237.557'
+            - '@github.com/opencharly/layer-wl-overlay:v2026.239.1634'
             - '@github.com/opencharly/layer-wl-record-pixelflux:v2026.242.1239'
-            - '@github.com/opencharly/layer-a11y-tools:v2026.237.454'
-            - '@github.com/opencharly/layer-xterm:v2026.237.503'
-            - '@github.com/opencharly/layer-tmux:v2026.235.2057'
+            - '@github.com/opencharly/layer-a11y-tools:v2026.240.0201'
+            - '@github.com/opencharly/layer-xterm:v2026.239.1631'
+            - '@github.com/opencharly/layer-tmux:v2026.240.0202'
             - '@github.com/opencharly/layer-asciinema:v2026.240.0119'
-            - '@github.com/opencharly/layer-fastfetch:v2026.237.456'
-            - '@github.com/opencharly/pod-sshd:v2026.237.558'
+            - '@github.com/opencharly/layer-fastfetch:v2026.239.1627'
+            - '@github.com/opencharly/pod-sshd:v2026.239.1637'
         service:
             # Chrome is launched + SUPERVISED here for BOTH selkies flavors (labwc +
             # KDE), instead of the former fire-once launch from each per-flavor
