@@ -1,7 +1,7 @@
 version: 2026.240.1943
 selkies-core:
     candy:
-        version: 2026.243.1048
+        version: 2026.243.1449
         description: |
             Single shared streaming spine for every selkies flavor; supervises the desktop's Chrome for both labwc and KDE.
             Compositor-agnostic core of the selkies streaming desktop: the pixelflux
@@ -41,7 +41,7 @@ selkies-core:
             # image's scanned candy set; collectReferencedPluginWords build-connects it before
             # the baked `wl:` check dispatches — otherwise it SKIPs with `unknown verb "wl"`.
             # (Same cross-repo reconcile lag as plugin-cdp.)
-            - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.242.0610'
+            - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.243.1001'
         candy:
             - '@github.com/opencharly/pod-selkies:v2026.243.0720'
             - '@github.com/opencharly/pod-pipewire:v2026.243.0508'
