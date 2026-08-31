@@ -1,7 +1,7 @@
 version: 2026.240.1943
 selkies-core:
     candy:
-        version: 2026.243.0100
+        version: 2026.243.0840
         description: |
             Single shared streaming spine for every selkies flavor; supervises the desktop's Chrome for both labwc and KDE.
             Compositor-agnostic core of the selkies streaming desktop: the pixelflux
