@@ -41,12 +41,12 @@ selkies-core:
             # image's scanned candy set; collectReferencedPluginWords build-connects it before
             # the baked `wl:` check dispatches — otherwise it SKIPs with `unknown verb "wl"`.
             # (Same cross-repo reconcile lag as plugin-cdp.)
-            - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.243.1001'
+            - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.243.1401'
         candy:
             - '@github.com/opencharly/pod-selkies:v2026.243.1737'
             - '@github.com/opencharly/pod-pipewire:v2026.243.0508'
             - '@github.com/opencharly/layer-chrome:v2026.239.1623'
-            - '@github.com/opencharly/pod-chrome-cdp:v2026.240.1559'
+            - '@github.com/opencharly/pod-chrome-cdp:v2026.243.1806'
             - '@github.com/opencharly/layer-desktop-fonts:v2026.239.1629'
             - '@github.com/opencharly/layer-wl-tools:v2026.240.0121'
             - '@github.com/opencharly/layer-wl-screenshot-pixelflux:v2026.243.1016'
