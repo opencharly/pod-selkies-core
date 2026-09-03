@@ -43,7 +43,7 @@ selkies-core:
             # (Same cross-repo reconcile lag as plugin-cdp.)
             - '@github.com/opencharly/plugin-wl/candy/plugin-wl:v2026.243.1401'
         candy:
-            - '@github.com/opencharly/pod-selkies:v2026.243.1737'
+            - '@github.com/opencharly/pod-selkies:v2026.246.2210'
             - '@github.com/opencharly/pod-pipewire:v2026.243.0508'
             - '@github.com/opencharly/layer-chrome:v2026.239.1623'
             - '@github.com/opencharly/pod-chrome-cdp:v2026.243.1806'
