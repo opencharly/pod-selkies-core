@@ -44,7 +44,7 @@ selkies-core:
             - '@github.com/opencharly/pod-selkies:v2026.272.0240'
             - '@github.com/opencharly/pod-pipewire:v2026.273.1856'
             - '@github.com/opencharly/layer-chrome:v2026.271.2309'
-            - '@github.com/opencharly/pod-chrome-cdp:v2026.272.0027'
+            - '@github.com/opencharly/pod-chrome-cdp:v2026.274.0348'
             - '@github.com/opencharly/layer-desktop-fonts:v2026.272.0015'
             - '@github.com/opencharly/layer-wl-tools:v2026.272.0511'
             - '@github.com/opencharly/layer-wl-screenshot-pixelflux:v2026.272.0438'
